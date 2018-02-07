@@ -2,3 +2,48 @@
 <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
+
+
+<div id="content">
+    <button (click)= "isactive = !isactive" type="button" id="sidebarCollapse" class="btn btn-info navbar-btn">
+        <i class="glyphicon glyphicon-align-left"></i>
+        Toggle Sidebar
+    </button>
+  <div>
+  <div class="wrapper">
+  
+    <!-- Sidebar -->
+    <nav id="sidebar"  [ngClass]="{'active':isactive}">
+       <div class="sidebar-header">
+         <h3>Collapsible Sidebar</h3>
+       </div>
+  
+  
+    <!-- Sidebar Links -->
+    <ul class="list-unstyled components">
+      <li class="active"><a routerLink="control-panel">DashBoard</a></li>
+      <li><a routerLink="about">About</a></li>
+  
+      <li><!-- Link with dropdown items -->
+          <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false">Specialities</a>
+          <ul class="collapse list-unstyled" id="homeSubmenu">
+              <li><a href="control-panel">Page</a></li>
+              <li><a href="control-panel">Page</a></li>
+              <li><a href="control-panel">Page</a></li>
+          </ul>
+  
+      <li><a href="control-panel">Portfolio</a></li>
+      <li><a routerLink="edu">Education</a></li>
+      <li><a href="control-panel">Contact</a></li>
+  </ul>
+  
+    </nav>
+  
+  
+    <!-- Page Content -->
+    <div id="content">
+        <!-- We'll fill this with dummy content -->
+    </div>
+  
+  </div> 
+  
