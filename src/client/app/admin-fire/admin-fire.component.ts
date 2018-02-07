@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { ApiService } from '../services/api.service';
+import { Fire } from '../shared/fire.model';
 
 @Component({
   selector: 'app-admin-fire',
@@ -6,10 +8,16 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./admin-fire.component.css']
 })
 export class AdminFireComponent implements OnInit {
+  fire: Fire[]
 
-  constructor() { }
+  constructor(private apiService: ApiService) { }
 
   ngOnInit() {
+    this.getFire()
+  }
+  getFire(){
+    this.apiService.getResource('fire')
+    .subscribe(resp => this.fire = resp )
   }
 
 }

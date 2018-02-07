@@ -17,3 +17,10 @@ exports.get = function(req, res){
         res.json(resp)
     })
 }
+
+exports.delete = function(req, res){
+    fire.remove({}, function(err, resp){
+        if(err) throw err;
+        res.status(200).status({status: "Removed all"})
+    })
+}
