@@ -1,0 +1,46 @@
+@import url('https://fonts.googleapis.com/css?family=Lato|Slabo+27px');
+
+.banner{
+    height: 400px;
+	background-image: url("/assets/images/banner5.jpg"); 
+     background-size: cover;
+    position: relative; 
+  
+}
+.contacts{
+    padding-left: 8px;
+    padding-top: 8px;
+}
+.contacts .title{
+    color: white;
+    
+}
+.contacts button{
+    padding-left:24px;
+}
+.clients{
+    background-color: rgba(0,0,0, 0.5);
+    height: 50px;
+   position:absolute;
+   bottom: 0; 
+   color: white;
+   padding: 8px;
+   width: 100%;
+
+}
+
+.clients h1{
+    font-family: 'Slabo 27px', serif;
+    font-size: 1.2em;
+
+}
+.logos div{
+    float: left;
+    margin-left: 20px;
+    vertical-align: 50%;
+    
+}
+h3{
+    font-family: 'Slabo 27px', serif;
+    text-align: left
+}
