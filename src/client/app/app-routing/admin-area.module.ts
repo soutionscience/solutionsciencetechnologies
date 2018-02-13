@@ -4,20 +4,35 @@ import { Routes, RouterModule } from '@angular/router';
 import { AdminAreaComponent } from '../admin-area/admin-area.component';
 import { SidebarComponent } from '../sidebar/sidebar.component';
 import { AdminFireComponent } from '../admin-fire/admin-fire.component';
+import { DetailsDialogComponent } from '../details-dialog/details-dialog.component';
+import { DashboardComponent } from '../dashboard/dashboard.component';
+import{ MatDialogModule}  from '@angular/material';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+
+
+
 
 const routes: Routes =[
   {path: '', component: AdminAreaComponent,
+  //redirectTo: 'dashboard', pathMatch: 'full',
   children:[
-    {path:'fire-systems', component: AdminFireComponent}
+    {path:'fire-systems', component: AdminFireComponent},
+    {path:'dashboard', component: DashboardComponent}
   ]}
 ]
 
 @NgModule({
   imports: [
     CommonModule,
-    RouterModule.forChild(routes)
+    RouterModule.forChild(routes),
+    MatDialogModule,
+    FormsModule,
+    ReactiveFormsModule
+   
   ],
-  declarations: [AdminAreaComponent, SidebarComponent, AdminFireComponent],
-  exports:[RouterModule]
+  declarations: [AdminAreaComponent, SidebarComponent, AdminFireComponent, DetailsDialogComponent, DashboardComponent],
+  exports:[RouterModule],
+  entryComponents:[DetailsDialogComponent]
 })
 export class AdminAreaModule { }

@@ -9,6 +9,8 @@ import { AppComponent } from './app.component';
 import { RoutingModule } from './app-routing/routing.module';
 import { restangularConfigFactory } from './shared/rest-config';
 import { ApiService } from './services/api.service';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
 
 
 @NgModule({
@@ -16,7 +18,9 @@ import { ApiService } from './services/api.service';
   imports: [
     BrowserModule,
     RoutingModule,
-    RestangularModule.forRoot(restangularConfigFactory)
+    RestangularModule.forRoot(restangularConfigFactory),
+    BrowserAnimationsModule
+
   ],
   providers: [ApiService],
   bootstrap: [AppComponent],

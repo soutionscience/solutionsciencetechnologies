@@ -11,4 +11,8 @@ export class ApiService {
  return this.restangular.all(apiRoute).getList()
   }
 
+  postResource(apiRoute, message){
+    this.restangular.all(apiRoute).post(message)
+  }
+
 }
