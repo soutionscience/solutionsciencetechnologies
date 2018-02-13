@@ -1,6 +1,8 @@
 <div class="home">
   <div class="container">
+      <button *ngIf="!home" class="button is-warning is-loading is-large" >Loading</button>
     <div class="columns" *ngFor="let h of home">
+  
       <div class="column is-three-quarters">
         <p class="title is-3">{{h.title}}</p>
         <p>{{h.desc}}</p>
