@@ -9,6 +9,7 @@ import { DashboardComponent } from '../dashboard/dashboard.component';
 import{ MatDialogModule}  from '@angular/material';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { AddImageComponent } from '../add-image/add-image.component';
 
 
 
@@ -31,7 +32,7 @@ const routes: Routes =[
     ReactiveFormsModule
    
   ],
-  declarations: [AdminAreaComponent, SidebarComponent, AdminFireComponent, DetailsDialogComponent, DashboardComponent],
+  declarations: [AdminAreaComponent, SidebarComponent, AdminFireComponent, DetailsDialogComponent, DashboardComponent, AddImageComponent],
   exports:[RouterModule],
   entryComponents:[DetailsDialogComponent]
 })
