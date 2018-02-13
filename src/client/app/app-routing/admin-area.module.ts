@@ -10,6 +10,7 @@ import{ MatDialogModule}  from '@angular/material';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AddImageComponent } from '../add-image/add-image.component';
+import { UploadService } from '../services/upload.service';
 
 
 
@@ -34,6 +35,7 @@ const routes: Routes =[
   ],
   declarations: [AdminAreaComponent, SidebarComponent, AdminFireComponent, DetailsDialogComponent, DashboardComponent, AddImageComponent],
   exports:[RouterModule],
-  entryComponents:[DetailsDialogComponent]
+  entryComponents:[DetailsDialogComponent],
+  providers:[UploadService]
 })
 export class AdminAreaModule { }
