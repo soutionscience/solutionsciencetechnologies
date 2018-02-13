@@ -1,9 +1,30 @@
+<div class="dashboard">
+<div class="columns">
+<div class="column">
 <section class="panel">
   <div class="panel-heading">
       <p class="title is-3">Home page</p>
   </div>
+  <div class="panel-block" *ngFor="let h of home">
+    <button class="button is-primary">{{h.title}}</button>
+  </div>
   <div class="panel-block">
     <button (click)="addHome()" class="button is-primary"> Add Home items</button>
-  </div>
-  
-</section>
+ </div>
+  </section>
+  <section class="panel">
+      <div class="panel-heading">
+          <p class="title is-3"> Fire page</p>
+      </div>
+      <div class="panel-block" *ngFor="let f of fire">
+        <button class="button is-primary">{{f.title}}</button>
+      </div>
+      <div class="panel-block">
+        <button (click)="addHome()" class="button is-primary"> Add Fire items</button>
+     </div>
+      </section>
+</div> 
+<!-- end of separating column -->
+</div> 
+<!-- end  columns -->
+</div>

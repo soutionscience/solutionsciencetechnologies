@@ -7,11 +7,15 @@ import { MainMenuComponent } from '../main-menu/main-menu.component';
 import { LogoComponent } from '../logo/logo.component';
 import { WelcomeComponent } from '../welcome/welcome.component';
 import { QuoteComponent } from '../quote/quote.component';
+import { FooterComponent } from '../footer/footer.component';
+import { BottomComponent } from '../bottom/bottom.component';
+import { FireComponent } from '../fire/fire.component';
 
 const routes: Routes=[
   {path:'', component: HomeComponent,
   children:[
-    {path:'', component: WelcomeComponent}]}
+    {path:'', component: WelcomeComponent},
+    {path: 'fire', component: FireComponent}]}
 ]
 
 @NgModule({
@@ -19,7 +23,7 @@ const routes: Routes=[
     CommonModule,
     RouterModule.forChild(routes)
   ],
-  declarations: [HomeComponent, BannerComponent, MainMenuComponent, LogoComponent, WelcomeComponent, QuoteComponent],
+  declarations: [HomeComponent, BannerComponent, MainMenuComponent, LogoComponent, WelcomeComponent, QuoteComponent, FooterComponent, BottomComponent, FireComponent],
   exports:[RouterModule]
 })
 export class WebsiteModule { }
