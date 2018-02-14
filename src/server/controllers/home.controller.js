@@ -21,7 +21,7 @@ exports.get = function(req, res){
 exports.delete = function(req, res){
     home.remove({}, function(err, resp){
         if(err) throw err;
-        res.status(200).status({status: "Removed all"})
+        res.status(200).send({status: "Removed all"})
     })
 }
 

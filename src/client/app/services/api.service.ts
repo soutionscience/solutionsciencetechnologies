@@ -15,7 +15,7 @@ export class ApiService {
  return this.restangular.all(apiRoute).getList()
   }
 
-  postResource(apiRoute, message):Observable<any[]>{
+  postResource(apiRoute, message){
    return this.restangular.all(apiRoute).post(message)
   }
 addImage(apiRoute, id:number, imageDetail){

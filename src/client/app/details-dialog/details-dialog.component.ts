@@ -14,7 +14,7 @@ import { Home } from '../shared/home.model';
 export class DetailsDialogComponent implements OnInit {
   myForm: FormGroup;
   image: Image;
-  home: Home[];
+  home: Home;
 
   constructor( public dialogRef: MatDialogRef<DetailsDialogComponent>,
     private fb: FormBuilder, 
@@ -33,7 +33,8 @@ export class DetailsDialogComponent implements OnInit {
 
   onSubmit(){
     this.apiService.postResource(this.data.dataKey, this.myForm.value)
-   .subscribe(resp=>{console.log("post responce", resp); this.home = resp; console.log(this.home[0])})
+   .subscribe(resp=>{console.log("post responce", resp._id);
+    this.apiService.addImage(this.data.dataKey, resp._id,  this.image)})
 this.dialogRef.close()
 
   }
