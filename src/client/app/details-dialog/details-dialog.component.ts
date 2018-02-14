@@ -3,6 +3,7 @@ import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
 import { FormGroup, FormBuilder } from '@angular/forms';
 import { ApiService } from '../services/api.service';
 import { Image } from '../shared/image.model';
+import { Home } from '../shared/home.model';
 
 
 @Component({
@@ -12,7 +13,8 @@ import { Image } from '../shared/image.model';
 })
 export class DetailsDialogComponent implements OnInit {
   myForm: FormGroup;
-  image: Image
+  image: Image;
+  home: Home[];
 
   constructor( public dialogRef: MatDialogRef<DetailsDialogComponent>,
     private fb: FormBuilder, 
@@ -30,7 +32,8 @@ export class DetailsDialogComponent implements OnInit {
   ngOnInit() { console.log(this.data.dataKey)}
 
   onSubmit(){
-this.apiService.postResource(this.data.dataKey, this.myForm.value)
+    this.apiService.postResource(this.data.dataKey, this.myForm.value)
+   .subscribe(resp=>{console.log("post responce", resp); this.home = resp; console.log(this.home[0])})
 this.dialogRef.close()
 
   }
