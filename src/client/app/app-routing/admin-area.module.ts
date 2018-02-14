@@ -6,7 +6,7 @@ import { SidebarComponent } from '../sidebar/sidebar.component';
 import { AdminFireComponent } from '../admin-fire/admin-fire.component';
 import { DetailsDialogComponent } from '../details-dialog/details-dialog.component';
 import { DashboardComponent } from '../dashboard/dashboard.component';
-import{ MatDialogModule}  from '@angular/material';
+import{ MatDialogModule, MatIconModule}  from '@angular/material';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AddImageComponent } from '../add-image/add-image.component';
@@ -30,7 +30,8 @@ const routes: Routes =[
     RouterModule.forChild(routes),
     MatDialogModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    MatIconModule
    
   ],
   declarations: [AdminAreaComponent, SidebarComponent, AdminFireComponent, DetailsDialogComponent, DashboardComponent, AddImageComponent],

@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Home } from '../shared/home.model';
 import { ApiService } from '../services/api.service';
-import { MatDialog } from '@angular/material';
+import { MatDialog, MatIcon} from '@angular/material';
 import { DetailsDialogComponent } from '../details-dialog/details-dialog.component';
 
 @Component({

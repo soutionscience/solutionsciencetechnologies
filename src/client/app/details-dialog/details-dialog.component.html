@@ -1,3 +1,13 @@
+<p class="title is-4">Add Main images</p>
+<app-add-image (myNotify)='imageNotify($event)'></app-add-image>
+
+<div *ngIf="image">
+    {{image.filename}}
+    <img [src]="'/uploads/' + image.filename"width="145px" height="auto">
+    <button class="button is-danger"(click)="removeImage()">Delete</button>
+  
+</div>
+
 <form action="" [formGroup]="myForm">
   
 <div class="field">

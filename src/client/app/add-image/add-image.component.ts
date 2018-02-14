@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter} from '@angular/core';
 import { ViewChild } from '@angular/core';
 import { UploadService } from '../services/upload.service';
+
 
 @Component({
   selector: 'app-add-image',
@@ -10,6 +11,8 @@ import { UploadService } from '../services/upload.service';
 export class AddImageComponent implements OnInit {
 
   constructor(private uploadService: UploadService) { }
+
+  @Output() myNotify = new EventEmitter<any>()
 
   ngOnInit() {
   }
@@ -21,7 +24,7 @@ export class AddImageComponent implements OnInit {
         this.uploadService
             .upload(fileToUpload)
             .subscribe(res => {
-                // this.myNotify.emit(res)
+                this.myNotify.emit(res)
                 console.log("is this the res" , res);
             });
     }

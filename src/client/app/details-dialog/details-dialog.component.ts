@@ -2,6 +2,7 @@ import { Component, OnInit, Inject, Output } from '@angular/core';
 import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
 import { FormGroup, FormBuilder } from '@angular/forms';
 import { ApiService } from '../services/api.service';
+import { Image } from '../shared/image.model';
 
 
 @Component({
@@ -10,7 +11,8 @@ import { ApiService } from '../services/api.service';
   styleUrls: ['./details-dialog.component.scss']
 })
 export class DetailsDialogComponent implements OnInit {
-  myForm: FormGroup
+  myForm: FormGroup;
+  image: Image
 
   constructor( public dialogRef: MatDialogRef<DetailsDialogComponent>,
     private fb: FormBuilder, 
@@ -20,22 +22,27 @@ export class DetailsDialogComponent implements OnInit {
 
   createForm(){ //create generic form data
     this.myForm = this.fb.group({
-
-      title: '',
+     title: '',
       desc:''
-
-    })
-
-  }
+})
+}
 
   ngOnInit() { console.log(this.data.dataKey)}
 
   onSubmit(){
-
-    this.apiService.postResource(this.data.dataKey, this.myForm.value)
-    this.dialogRef.close()
+this.apiService.postResource(this.data.dataKey, this.myForm.value)
+this.dialogRef.close()
 
   }
-
+imageNotify(data){
+  console.log("what is here", data)
+  this.image = data.json();
+  console.log(this.image)
+}
+removeImage(){
+  console.log("what is in", this.image)
+  this.image =undefined;
+ console.log (this.image);
+}
 
 }
