@@ -3,8 +3,8 @@ const mongoose = require('mongoose')
 const Schema = mongoose.Schema;
 
 var image = new Schema({
-    name: String,
-    location: String
+    originalname: String,
+    filename: String
 })
 
 var fire = new Schema({

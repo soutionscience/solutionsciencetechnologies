@@ -1,5 +1,7 @@
 <p class="title is-4">Add Main images</p>
 <app-add-image (myNotify)='imageNotify($event)'></app-add-image>
+<p [hidden]="image" class="help is-danger">Image is required</p>
+<p [hidden]="!image" class="help is-success">Image added!!</p>
 
 <div *ngIf="image">
     {{image.filename}}
@@ -24,6 +26,6 @@
     <textarea class="textarea" placeholder="Textarea" formControlName="desc"></textarea>
   </div>
 </div>
-<button (click)= "onSubmit()"class="button">Submit</button>
+<button (click)= "onSubmit()"class="button" [disabled]="!image || myForm.invalid">Submit</button>
 <button mat-dialog-close class="button">Cancel</button>
 </form>

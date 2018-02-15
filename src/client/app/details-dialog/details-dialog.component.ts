@@ -1,6 +1,6 @@
 import { Component, OnInit, Inject, Output } from '@angular/core';
 import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
-import { FormGroup, FormBuilder } from '@angular/forms';
+import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { ApiService } from '../services/api.service';
 import { Image } from '../shared/image.model';
 import { Home } from '../shared/home.model';
@@ -24,8 +24,8 @@ export class DetailsDialogComponent implements OnInit {
 
   createForm(){ //create generic form data
     this.myForm = this.fb.group({
-     title: '',
-      desc:''
+     title: ['', [Validators.required, Validators.minLength(2)]],
+      desc:['', [Validators.required, Validators.minLength(2)]]
 })
 }
 
@@ -33,7 +33,7 @@ export class DetailsDialogComponent implements OnInit {
 
   onSubmit(){
     this.apiService.postResource(this.data.dataKey, this.myForm.value)
-   .subscribe(resp=>{console.log("post responce", resp._id);
+   .subscribe(resp=>{console.log("post responce", resp._id, this.image);
     this.apiService.addImage(this.data.dataKey, resp._id,  this.image)})
 this.dialogRef.close()
 
