@@ -1,0 +1,15 @@
+<div class="home">
+  <div class="container">
+      <button *ngIf="!gates" class="button is-warning is-loading is-large" >Loading</button>
+    <div class="columns" *ngFor="let g of gates">
+  
+      <div class="column is-three-quarters">
+        <p class="title is-3">{{g.title}}</p>
+        <p>{{g.desc}}</p>
+      </div>
+      <div class="column">
+      <img [src]="'/uploads/' + g.images[0].filename">
+      </div>
+    </div>
+  </div>
+</div>

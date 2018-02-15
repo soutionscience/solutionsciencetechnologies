@@ -7,6 +7,10 @@ module.exports = function(controller , router){
     router.route('/:id/images')
     .post(controller.postImages)
 
-    // router.route(':/id/types')
-    // .post(controller.postTypes)
+    router.route('/:id/types')
+    .post(controller.postTypes)
+    .get(controller.getTypes)
+    .delete(controller.deleteTypes)
+
+
 }

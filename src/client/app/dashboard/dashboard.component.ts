@@ -38,7 +38,10 @@ addFire(){
   this.dialog.open(DetailsDialogComponent, {width: '700px' , height: 'auto',  data: {
     dataKey: 'fire' //shows which route to use when posting.
   } })
-
 }
-
+addGate(){
+  this.dialog.open(DetailsDialogComponent, {width: '700px' , height: 'auto',  data: {
+    dataKey: 'gate' //shows which route to use when posting.
+  } })
+}
 }

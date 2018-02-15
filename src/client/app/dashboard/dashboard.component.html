@@ -29,6 +29,22 @@
     
      </div>
       </section>
+
+ 
+    <section class="panel">
+        <div class="panel-heading">
+            <p class="title is-3"> Gate Section</p>
+        </div>
+        <div class="panel-block" *ngFor="let g of gates">
+          <button class="button is-primary is-outlined">{{g.title}}</button>
+        </div>
+        <div class="panel-block">
+            <button class="button is-link">
+                <mat-icon (click)="addGate()">playlist_add</mat-icon> 
+              </button>
+      
+       </div>
+        </section>
 </div> 
 <!-- end of separating column -->
 </div> 

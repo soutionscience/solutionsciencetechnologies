@@ -1,9 +1,9 @@
 const express= require('express');
 const router = express.Router();
 const controller = require('../controllers/product.controller');
-const createRouter = require('../utils/createRoute')
+const createProdRouter = require('../utils/createProdRoutes')
 
 
-createRouter(controller, router);
+createProdRouter(controller, router);
 
 module.exports = router;

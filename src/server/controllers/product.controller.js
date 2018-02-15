@@ -11,7 +11,7 @@ exports.post = function(req, res){
 
 exports.get = function(req, res){
     console.log("get")
-    prouct.find({})
+    product.find({})
     .exec(function(err, resp){
         if(err) throw err;
         res.json(resp)
@@ -39,4 +39,36 @@ exports.postImages =function(req, res, next){
     })
     })
   
+  }
+
+  exports.postTypes = function(req, res, next){
+      console.log("hitting post")
+      product.findById(req.params.id, function(err, resp){
+          if(err) throw err;
+          resp.types.push(req.body)
+          resp.save(function(err, result){
+              if(err) throw err;
+              res.status(201).send({status: "added product type to"})
+          })
+      })
+
+  }
+
+  exports.getTypes = function(req, res, next){
+     product.findById(req.params.id, function(err, resp){
+         if(err) throw err;
+         res.status(200).json(resp.types)
+     })
+  }
+
+  exports.deleteTypes = function(req, res, next){
+      product.findById(req.params.id, function(err, resp){
+          if(err) throw err;
+          for(var i = (resp.types.length-1); i>=0; i--){
+            resp.types.id(resp.types[i]._id).remove();
+     
+        }
+        resp.types.length =0;
+        res.status(200).send({status:"types deleted"})
+      })
   }

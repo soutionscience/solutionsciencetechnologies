@@ -10,12 +10,14 @@ import { QuoteComponent } from '../quote/quote.component';
 import { FooterComponent } from '../footer/footer.component';
 import { BottomComponent } from '../bottom/bottom.component';
 import { FireComponent } from '../fire/fire.component';
+import { GatesComponent } from '../gates/gates.component';
 
 const routes: Routes=[
   {path:'', component: HomeComponent,
   children:[
     {path:'', component: WelcomeComponent},
-    {path: 'fire', component: FireComponent}]}
+    {path: 'fire', component: FireComponent},
+  {path:'gates', component: GatesComponent}]}
 ]
 
 @NgModule({
@@ -23,7 +25,7 @@ const routes: Routes=[
     CommonModule,
     RouterModule.forChild(routes)
   ],
-  declarations: [HomeComponent, BannerComponent, MainMenuComponent, LogoComponent, WelcomeComponent, QuoteComponent, FooterComponent, BottomComponent, FireComponent],
+  declarations: [HomeComponent, BannerComponent, MainMenuComponent, LogoComponent, WelcomeComponent, QuoteComponent, FooterComponent, BottomComponent, FireComponent, GatesComponent],
   exports:[RouterModule]
 })
 export class WebsiteModule { }
