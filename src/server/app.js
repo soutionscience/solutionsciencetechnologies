@@ -12,6 +12,7 @@ var users = require('./routes/users');
 var fire = require('./routes/fire.router')
 var home = require('./routes/home.router')
 var upload = require('./routes/upload.router')
+var product = require('./routes/product.router')
 
 var app = express();
 
@@ -33,7 +34,8 @@ app.use('/', index);
 app.use('/users', users);
 app.use('/api/fire', fire)
 app.use('/api/home', home)
-app.use('/api/uploads', upload)
+app.use('/api/uploads', upload);
+app.use('/api/gates', product)
 
 mongoose.connect(process.env.MONGOLAB_UR || config.mongoDbUrl, function(err, db){
   if(!err){
