@@ -5,7 +5,7 @@ exports.post = function(req, res){
     var newFire = new fire(req.body)
     newFire.save(function(err, resp){
         if(err) throw err;
-        res.status(201).send({status: "new fire created"})
+        res.status(201).json(resp)
     })
 }
 
@@ -21,7 +21,7 @@ exports.get = function(req, res){
 exports.delete = function(req, res){
     fire.remove({}, function(err, resp){
         if(err) throw err;
-        res.status(200).status({status: "Removed all"})
+        res.status(200).send({status: "Removed all"})
     })
 }
 
