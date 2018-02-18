@@ -23,7 +23,12 @@ this.restangular.one(apiRoute, id).all('images').post(imageDetail)
 }
 
 postResourceTypes(apiRoute, id:number,typeDetail){
-  console.log(id)
+
  return this.restangular.one(apiRoute, id ).all('types').post(typeDetail)
 }
+postResourceTypesImages(apiRoute, id:number, typeId:number, imageDetail){
+ this.restangular.one(apiRoute, id).all('types').one(typeId).all('images').post(imageDetail)
+
+}
+
 }

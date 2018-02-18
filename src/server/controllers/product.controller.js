@@ -48,7 +48,8 @@ exports.postImages =function(req, res, next){
           resp.types.push(req.body)
           resp.save(function(err, result){
               if(err) throw err;
-              res.status(201).send({status: "added product type to"})
+              console.log("lenght of array", result.types.length, result.types[result.types.length-1])
+              res.status(201).json(result.types[result.types.length-1])
           })
       })
 
