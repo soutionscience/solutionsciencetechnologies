@@ -37,13 +37,17 @@
         </div>
         <div class="panel-block" *ngFor="let g of gates">
           <button class="button is-primary is-outlined">{{g.title}}</button>
+          <button class="button is-primary" (click)="addGateTypes(g._id, 'gate')">Add Types</button>
+          <button class="button is-danger">Delete</button>
         </div>
         <div class="panel-block">
             <button class="button is-link">
                 <mat-icon (click)="addGate()">playlist_add</mat-icon> 
               </button>
+             
       
        </div>
+  
         </section>
 </div> 
 <!-- end of separating column -->

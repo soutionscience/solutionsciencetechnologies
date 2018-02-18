@@ -11,6 +11,7 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AddImageComponent } from '../add-image/add-image.component';
 import { UploadService } from '../services/upload.service';
+import { TypesDialogComponent } from '../types-dialog/types-dialog.component';
 
 
 
@@ -34,9 +35,9 @@ const routes: Routes =[
     MatIconModule
    
   ],
-  declarations: [AdminAreaComponent, SidebarComponent, AdminFireComponent, DetailsDialogComponent, DashboardComponent, AddImageComponent],
+  declarations: [AdminAreaComponent, SidebarComponent, AdminFireComponent, DetailsDialogComponent, DashboardComponent, AddImageComponent, TypesDialogComponent],
   exports:[RouterModule],
-  entryComponents:[DetailsDialogComponent],
+  entryComponents:[DetailsDialogComponent, TypesDialogComponent],
   providers:[UploadService]
 })
 export class AdminAreaModule { }

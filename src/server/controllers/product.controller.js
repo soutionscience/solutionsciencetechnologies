@@ -54,6 +54,7 @@ exports.postImages =function(req, res, next){
 
   }
 
+
   exports.getTypes = function(req, res, next){
      product.findById(req.params.id, function(err, resp){
          if(err) throw err;
@@ -68,7 +69,45 @@ exports.postImages =function(req, res, next){
             resp.types.id(resp.types[i]._id).remove();
      
         }
-        resp.types.length =0;
-        res.status(200).send({status:"types deleted"})
+      product.save(function(err, resp){
+          if(err) throw err;
+          res.status(200).send({status:"types deleted"})
+      })
+        
       })
   }
+
+  exports.postTypeId  = function(req, res, next){
+    console.log("hitting post types images")
+    res.status(200).send({status:"completed"})
+}
+
+exports.getTypeId = function(req, res, next){
+    console.log("type id")
+    product.findById(req.params.id)
+    .exec(function(err, prod){
+        if(err) throw err;
+        res.json(prod.types.id(req.params.typeId))
+    })
+
+}
+exports.deleteTypeId = function(req, res, next){
+    product.findById(req.params.id, function(err, resp){
+        if(err) throw err;
+        resp.types.id(req.params.typeId).remove();
+        resp.save(function(err, prod){
+            if(err) throw err;
+            res.status(200).send({status:"deleted type"})
+        })
+    })
+}
+exports.addImageToType= function(req, res, next){
+    product.findById(req.params.id, function(err, resp){
+        if(err) throw err;
+       resp.types.id(req.params.typeId).images.push(req.body);
+       resp.save(function(err, prod){
+           if(err) throw err;
+           res.status(200).send({status:"added images to product type"})
+       })
+    })
+}

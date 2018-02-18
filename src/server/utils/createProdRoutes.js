@@ -12,5 +12,10 @@ module.exports = function(controller , router){
     .get(controller.getTypes)
     .delete(controller.deleteTypes)
 
+    router.route('/:id/types/:typeId')
+    .get(controller.getTypeId)
+  
+    router.route('/:id/types/:typeId/images')
+    .post(controller.addImageToType)
 
 }
