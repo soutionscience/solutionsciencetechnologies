@@ -37,7 +37,7 @@ app.use('/api/home', home)
 app.use('/api/uploads', upload);
 app.use('/api/gate', product)
 
-mongoose.connect(process.env.MONGOLAB_UR || config.mongoDbUrl, function(err, db){
+mongoose.connect(process.env.MONGOLAB_UR || config.localDb, function(err, db){
   if(!err){
     console.log("connected to remote db")
     database = db;

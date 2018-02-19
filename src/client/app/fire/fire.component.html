@@ -3,13 +3,16 @@
     <button *ngIf="!fire" class="button is-warning is-loading is-large" >Loading</button>
   <div class="columns" *ngFor="let f of fire">
     <div class="column is-two-thirds">
+      <div class="card">
       <p class="title is-3">{{f.title}}</p>
-      <p>{{f.desc}}</p>
+      <p class="subtitle">{{f.desc}}</p>
+      </div>
 
     </div>
     <div class="column">
       <img [src]="'/uploads/' + f.images[0].filename">
       </div>
+  
   </div>
 </div>
 </div>

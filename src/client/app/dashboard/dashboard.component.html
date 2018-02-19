@@ -35,11 +35,15 @@
         <div class="panel-heading">
             <p class="title is-3"> Gate Section</p>
         </div>
-        <div class="panel-block" *ngFor="let g of gates">
+        <div *ngFor="let g of gates">
+        <div class="panel-block">
           <button class="button is-primary is-outlined">{{g.title}}</button>
           <button class="button is-primary" (click)="addGateTypes(g._id, 'gate')">Add Types</button>
-          <button class="button is-danger">Delete</button>
-        </div>
+          <button class="button is-danger">Delete</button><br/>
+       </div>
+       <div class="panel-block">
+        <button class="button" *ngFor ="let t of g.types">{{t.title}}</button></div>
+       </div>
         <div class="panel-block">
             <button class="button is-link">
                 <mat-icon (click)="addGate()">playlist_add</mat-icon> 
