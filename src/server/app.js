@@ -13,6 +13,9 @@ var fire = require('./routes/fire.router')
 var home = require('./routes/home.router')
 var upload = require('./routes/upload.router')
 var product = require('./routes/product.router')
+var cctv = require('./routes/cctv.router')
+var alarm = require('./routes/alarm.router')
+var access = require('./routes/access.router')
 
 var app = express();
 
@@ -36,8 +39,10 @@ app.use('/api/fire', fire)
 app.use('/api/home', home)
 app.use('/api/uploads', upload);
 app.use('/api/gate', product)
-
-mongoose.connect(process.env.MONGOLAB_UR || config.localDb, function(err, db){
+app.use('/api/cctv', cctv);
+app.use('/api/alarm', alarm)
+app.use('/api/access', access)
+mongoose.connect(process.env.MONGOLAB_UR || config.mongoDbUrl, function(err, db){
   if(!err){
     console.log("connected to remote db")
     database = db;

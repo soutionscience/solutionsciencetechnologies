@@ -18,4 +18,7 @@ module.exports = function(controller , router){
     router.route('/:id/types/:typeId/images')
     .post(controller.addImageToType)
 
+    router.route('/:id/types/:typeId/features')
+    .post(controller.addFeatureToType)
+
 }
