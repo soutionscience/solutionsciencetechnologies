@@ -9,9 +9,9 @@
     <button class="button is-primary is-outlined">{{h.title}}</button>
   </div>
   <div class="panel-block">
-      <button class="button is-link">
-          <mat-icon (click)="addHome()">playlist_add</mat-icon> 
-        </button>
+    <button class="button is-link">
+        <mat-icon (click)="addItems('home')">playlist_add</mat-icon> 
+      </button>
 
  </div>
   </section>
@@ -23,9 +23,9 @@
         <button class="button is-primary is-outlined">{{f.title}}</button>
       </div>
       <div class="panel-block">
-          <button class="button is-link">
-              <mat-icon (click)="addFire()">playlist_add</mat-icon> 
-            </button>
+        <button class="button is-link">
+            <mat-icon (click)="addItems('fire')">playlist_add</mat-icon> 
+          </button>
     
      </div>
       </section>
@@ -38,21 +38,55 @@
         <div *ngFor="let g of gates">
         <div class="panel-block">
           <button class="button is-primary is-outlined">{{g.title}}</button>
-          <button class="button is-primary" (click)="addGateTypes(g._id, 'gate')">Add Types</button>
+          <button class="button is-primary" (click)="addItemTypes(g._id, 'gate')">Add Types</button>
           <button class="button is-danger">Delete</button><br/>
        </div>
        <div class="panel-block">
-        <button class="button" *ngFor ="let t of g.types">{{t.title}}</button></div>
+     <p class="panel-tabs"><a class="is-active" *ngFor ="let t of g.types">{{t.title |uppercase |slice:0:15}} ..</a></p>
+    </div>
+    <a class="panel-block is-active">
+            <span class="panel-icon">
+              <i class="fas fa-book"></i>
+            </span>
+            bulma
+          </a>
        </div>
         <div class="panel-block">
             <button class="button is-link">
-                <mat-icon (click)="addGate()">playlist_add</mat-icon> 
+                <mat-icon (click)="addItems('gate')">playlist_add</mat-icon> 
               </button>
              
       
        </div>
   
         </section>
+
+        <section class="panel">
+            <div class="panel-heading">
+                <p class="title is-3">CCTV SECTION</p>
+            </div>
+            <div *ngFor="let c of cctv">
+            <div class="panel-block">
+              <button class="button is-primary is-outlined">{{c.title}}</button>
+              <button class="button is-primary" (click)="addItemTypes(c._id, 'cctv')">Add Types</button>
+              <button class="button is-danger">Delete</button><br/>
+           </div>
+           <div class="panel-block">
+                <p class="panel-tabs">
+                        <a class="is-active" *ngFor ="let t of c.types">{{t.title |uppercase |slice:0:15}} ..</a>
+                    </p>
+           
+        </div>
+           </div>
+            <div class="panel-block">
+                <button [disabled]="cctv" class="button is-link">
+                    <mat-icon (click)="addItems('cctv')">playlist_add</mat-icon> 
+                  </button>
+                 
+          
+           </div>
+      
+            </section>
 </div> 
 <!-- end of separating column -->
 </div> 

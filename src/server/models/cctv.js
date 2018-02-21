@@ -18,6 +18,7 @@ var type = new Schema({
 
 var cctv = new Schema({
     title: String,
+    subtitle: String,
     desc: String,
     types: [type],
     images:[image]

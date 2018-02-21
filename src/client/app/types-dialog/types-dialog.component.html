@@ -26,6 +26,6 @@
     <textarea class="textarea" placeholder="Textarea" formControlName="desc"></textarea>
   </div>
 </div>
-<button (click)= "onSubmit()"class="button" [disabled]="!image || myForm.invalid">Submit</button>
+<button (click)= "onSubmit()"class="button" [disabled]="myForm.invalid">Submit</button>
 <button mat-dialog-close class="button">Cancel</button>
 </form>

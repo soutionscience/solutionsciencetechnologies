@@ -34,8 +34,10 @@ export class TypesDialogComponent implements OnInit {
   onSubmit(){
     console.log(this.data.id)
     this.apiService.postResourceTypes(this.data.parent, this.data.id, this.myForm.value)
-   .subscribe(resp=>{console.log("post responce check id", resp._id, this.image);
+   .subscribe(resp=>{console.log("post responce check id", resp._id);
+   if(this.image){
     this.postTypeImage(resp._id)
+   }
   })
 this.dialogRef.close()
 
