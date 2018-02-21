@@ -2,7 +2,9 @@ const mongoose = require('mongoose')
 const Schema = mongoose.Schema;
 
 var feature = new Schema({
-  desc: String
+    title:String,
+    subtitle: String,
+    desc: String
 })
 var image = new Schema({
     originalname: String,
@@ -10,14 +12,16 @@ var image = new Schema({
 })
 
 var type = new Schema({
-   title: String,
-   desc: String,
+    title:String,
+    subtitle: String,
+    desc: String,
    features: [feature],
    images:[image]
 })
 
 var access= new Schema({
-    title: String,
+    title:String,
+    subtitle: String,
     desc: String,
     types: [type],
     images:[image]

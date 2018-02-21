@@ -1,18 +1,29 @@
 <div class="home">
   <div class="container">
       <button *ngIf="!gates" class="button is-warning is-loading is-large" >Loading</button>
-    <div class="columns" *ngFor="let g of gates">
-  
+<div *ngFor="let g of gates">
+  <div class="columns">
+    <div class="column is-three-quarters">
+      <p class="title is-4">{{g.title}}</p>
+      <p>{{g.desc}}</p>
+    </div>
+    <div class="column">
+        <img [src]="'/uploads/' + g.images[0].filename">
+    </div>
+  </div>
+  <div class="types">
+  <div *ngFor="let t of g.types">
+    <div class="columns">
       <div class="column is-three-quarters">
-        <p class="title is-3">{{g.title}}</p>
-        <p>{{g.desc}}</p>
-  
-
+        <p class="subtitle">{{t.title}}</p>
+        <p>{{t.desc}}</p>
       </div>
       <div class="column">
-      <img [src]="'/uploads/' + g.images[0].filename">
+          <img [src]="'/uploads/' + t.images[0].filename">
+
       </div>
-     
     </div>
+  </div>
+</div>
 </div>
 </div>

@@ -74,19 +74,53 @@
            <div class="panel-block">
                 <p class="panel-tabs">
                         <a class="is-active" *ngFor ="let t of c.types">{{t.title |uppercase |slice:0:15}} ..</a>
-                    </p>
-           
-        </div>
-           </div>
+                    </p></div></div>
             <div class="panel-block">
                 <button [disabled]="cctv" class="button is-link">
                     <mat-icon (click)="addItems('cctv')">playlist_add</mat-icon> 
                   </button>
-                 
-          
+                 </div></section>
+ 
+ <section class="panel">
+                        <div class="panel-heading">
+                            <p class="title is-3">ALARM SECTION</p>
+                        </div>
+                        <div *ngFor="let a of alarm">
+                        <div class="panel-block">
+                          <button class="button is-primary is-outlined">{{a.title}}</button>
+                          <button class="button is-primary" (click)="addItemTypes(a._id, 'alarm')">Add Types</button>
+                          <button class="button is-danger">Delete</button><br/>
+                       </div>
+                       <div class="panel-block">
+                            <p class="panel-tabs">
+                                    <a class="is-active" *ngFor ="let t of a.types">{{t.title |uppercase |slice:0:15}} ..</a>
+                                </p></div></div>
+                        <div class="panel-block">
+                            <button  class="button is-link">
+                                <mat-icon (click)="addItems('alarm')">playlist_add</mat-icon> 
+                              </button>
+                             </div>
+    </section>
+    <section class="panel">
+            <div class="panel-heading">
+                <p class="title is-3">ACCESS CONTROL SECTION</p>
+            </div>
+            <div *ngFor="let a of access">
+            <div class="panel-block">
+              <button class="button is-primary is-outlined">{{a.title}}</button>
+              <button class="button is-primary" (click)="addItemTypes(a._id, 'access')">Add Types</button>
+              <button class="button is-danger">Delete</button><br/>
            </div>
-      
-            </section>
+           <div class="panel-block">
+                <p class="panel-tabs">
+                        <a class="is-active" *ngFor ="let t of a.types">{{t.title |uppercase |slice:0:15}} ..</a>
+                    </p></div></div>
+            <div class="panel-block">
+                <button  class="button is-link">
+                    <mat-icon (click)="addItems('access')">playlist_add</mat-icon> 
+                  </button>
+                 </div>
+</section>
 </div> 
 <!-- end of separating column -->
 </div> 

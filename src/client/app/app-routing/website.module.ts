@@ -11,13 +11,21 @@ import { FooterComponent } from '../footer/footer.component';
 import { BottomComponent } from '../bottom/bottom.component';
 import { FireComponent } from '../fire/fire.component';
 import { GatesComponent } from '../gates/gates.component';
+import { CctvComponent } from '../cctv/cctv.component';
+import { AcessComponent } from '../acess/acess.component';
+import { AlarmsComponent } from '../alarms/alarms.component';
+import { CareersComponent } from '../careers/careers.component';
 
 const routes: Routes=[
   {path:'', component: HomeComponent,
   children:[
     {path:'', component: WelcomeComponent},
     {path: 'fire', component: FireComponent},
-  {path:'gates', component: GatesComponent}]}
+  {path:'gates', component: GatesComponent},
+{path:'cctv', component: CctvComponent},
+{path:'alarms', component: AlarmsComponent},
+{path: 'access', component: AcessComponent},
+{path: 'careers', component: CareersComponent}]}
 ]
 
 @NgModule({
@@ -25,7 +33,7 @@ const routes: Routes=[
     CommonModule,
     RouterModule.forChild(routes)
   ],
-  declarations: [HomeComponent, BannerComponent, MainMenuComponent, LogoComponent, WelcomeComponent, QuoteComponent, FooterComponent, BottomComponent, FireComponent, GatesComponent],
+  declarations: [HomeComponent, BannerComponent, MainMenuComponent, LogoComponent, WelcomeComponent, QuoteComponent, FooterComponent, BottomComponent, FireComponent, GatesComponent, CctvComponent, AcessComponent, AlarmsComponent, CareersComponent],
   exports:[RouterModule]
 })
 export class WebsiteModule { }

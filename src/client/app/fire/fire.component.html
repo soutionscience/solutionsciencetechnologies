@@ -3,9 +3,9 @@
     <button *ngIf="!fire" class="button is-warning is-loading is-large" >Loading</button>
   <div class="columns" *ngFor="let f of fire">
     <div class="column is-two-thirds">
-      <div class="card">
+      <div>
       <p class="title is-3">{{f.title}}</p>
-      <p class="subtitle">{{f.desc}}</p>
+      <p>{{f.desc}}</p>
       </div>
 
     </div>

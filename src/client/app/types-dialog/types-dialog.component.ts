@@ -25,6 +25,7 @@ export class TypesDialogComponent implements OnInit {
   createForm(){ //create generic form data
     this.myForm = this.fb.group({
      title: ['', [Validators.required, Validators.minLength(2)]],
+     subtitle:'',
       desc:['', [Validators.required, Validators.minLength(2)]]
 })
 }

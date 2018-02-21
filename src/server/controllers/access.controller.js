@@ -1,8 +1,8 @@
-const alarm= require ('../models/alarm')
+const access= require ('../models/access')
 
 exports.post = function(req, res){
     console.log("hitting post")
-    var newprod = new alarm(req.body)
+    var newprod = new access(req.body)
     newprod.save(function(err, resp){
         if(err) throw err;
         res.status(201).json(resp)
@@ -11,7 +11,7 @@ exports.post = function(req, res){
 
 exports.get = function(req, res){
     console.log("get")
-    alarm.find({})
+    access.find({})
     .exec(function(err, resp){
         if(err) throw err;
         res.json(resp)
@@ -19,14 +19,14 @@ exports.get = function(req, res){
 }
 
 exports.delete = function(req, res){
-    alarm.remove({}, function(err, resp){
+    access.remove({}, function(err, resp){
         if(err) throw err;
         res.status(200).send({status: "Removed all"})
     })
 }
 
 exports.postImages =function(req, res, next){
-    alarm.findById(req.params.id, function(err, resp){
+    access.findById(req.params.id, function(err, resp){
         if (err)throw err;
      for(var i = (resp.images.length-1); i>=0; i--){
          resp.images.id(resp.images[i]._id).remove();
@@ -43,7 +43,7 @@ exports.postImages =function(req, res, next){
 
   exports.postTypes = function(req, res, next){
       console.log("hitting post")
-      alarm.findById(req.params.id, function(err, resp){
+      access.findById(req.params.id, function(err, resp){
           if(err) throw err;
           resp.types.push(req.body)
           resp.save(function(err, result){
@@ -57,20 +57,20 @@ exports.postImages =function(req, res, next){
 
 
   exports.getTypes = function(req, res, next){
-     alarm.findById(req.params.id, function(err, resp){
+     access.findById(req.params.id, function(err, resp){
          if(err) throw err;
          res.status(200).json(resp.types)
      })
   }
 
   exports.deleteTypes = function(req, res, next){
-      alarm.findById(req.params.id, function(err, resp){
+      access.findById(req.params.id, function(err, resp){
           if(err) throw err;
           for(var i = (resp.types.length-1); i>=0; i--){
             resp.types.id(resp.types[i]._id).remove();
      
         }
-      alarm.save(function(err, resp){
+      access.save(function(err, resp){
           if(err) throw err;
           res.status(200).send({status:"types deleted"})
       })
@@ -85,7 +85,7 @@ exports.postImages =function(req, res, next){
 
 exports.getTypeId = function(req, res, next){
     console.log("type id")
-    alarm.findById(req.params.id)
+    access.findById(req.params.id)
     .exec(function(err, prod){
         if(err) throw err;
         res.json(prod.types.id(req.params.typeId))
@@ -93,7 +93,7 @@ exports.getTypeId = function(req, res, next){
 
 }
 exports.deleteTypeId = function(req, res, next){
-    alarm.findById(req.params.id, function(err, resp){
+    access.findById(req.params.id, function(err, resp){
         if(err) throw err;
         resp.types.id(req.params.typeId).remove();
         resp.save(function(err, prod){
@@ -103,18 +103,18 @@ exports.deleteTypeId = function(req, res, next){
     })
 }
 exports.addImageToType= function(req, res, next){
-    alarm.findById(req.params.id, function(err, resp){
+    access.findById(req.params.id, function(err, resp){
         if(err) throw err;
        resp.types.id(req.params.typeId).images.push(req.body);
        resp.save(function(err, prod){
            if(err) throw err;
-           res.status(200).send({status:"added images to alarm type"})
+           res.status(200).send({status:"added images to access type"})
        })
     })
 }
 
 exports.addFeatureToType = function(req, res ,next){
-    alarm.findById(req.params.id, function(err, resp){
+    access.findById(req.params.id, function(err, resp){
         if(err) throw err;
         resp.types.id(req.params.typeId).features.push(req.body);
         resp.save(function(err, prod){

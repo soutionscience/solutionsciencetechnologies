@@ -16,6 +16,8 @@ export class DashboardComponent implements OnInit {
   fire: Home[]
   gates: Home[]
   cctv: Home[]
+  alarm: Home[]
+  access: Home[]
 
   constructor(private apiService: ApiService, private dialog: MatDialog ) { }
 
@@ -24,6 +26,10 @@ export class DashboardComponent implements OnInit {
   this.getItems('fire').subscribe(resp => this.fire= resp)
   this.getItems('gate').subscribe(resp => this.gates= resp)
   this.getItems('home').subscribe(resp => this.home = resp)
+  this.getItems('alarm').subscribe(resp => this.alarm = resp)
+  this.getItems('access').subscribe(resp => this.access = resp)
+
+
 }
 getItems(product){ return this.apiService.getResource(product)}
 
