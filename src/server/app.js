@@ -33,7 +33,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/uploads', express.static(path.join(__dirname, '/uploads')));
 
 
-app.use('/', index);
+// app.use('/', index);
 app.use('/users', users);
 app.use('/api/fire', fire)
 app.use('/api/home', home)
