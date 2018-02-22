@@ -12,16 +12,17 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AddImageComponent } from '../add-image/add-image.component';
 import { UploadService } from '../services/upload.service';
 import { TypesDialogComponent } from '../types-dialog/types-dialog.component';
+import { FeatureDialogComponent } from '../feature-dialog/feature-dialog.component';
 
 
 
 
 const routes: Routes =[
   {path: '', component: AdminAreaComponent,
-  //redirectTo: 'dashboard', pathMatch: 'full',
+  // redirectTo: 'dashboard', pathMatch: 'full',
   children:[
-    {path:'fire-systems', component: AdminFireComponent},
-    {path:'dashboard', component: DashboardComponent}
+    {path: 'fire-systems', component: AdminFireComponent},
+    {path: 'dashboard', component: DashboardComponent}
   ]}
 ]
 
@@ -33,11 +34,11 @@ const routes: Routes =[
     FormsModule,
     ReactiveFormsModule,
     MatIconModule
-   
   ],
-  declarations: [AdminAreaComponent, SidebarComponent, AdminFireComponent, DetailsDialogComponent, DashboardComponent, AddImageComponent, TypesDialogComponent],
+  declarations: [AdminAreaComponent, SidebarComponent, AdminFireComponent, 
+    DetailsDialogComponent, DashboardComponent, AddImageComponent, TypesDialogComponent, FeatureDialogComponent],
   exports:[RouterModule],
-  entryComponents:[DetailsDialogComponent, TypesDialogComponent],
+  entryComponents:[DetailsDialogComponent, TypesDialogComponent, FeatureDialogComponent],
   providers:[UploadService]
 })
 export class AdminAreaModule { }

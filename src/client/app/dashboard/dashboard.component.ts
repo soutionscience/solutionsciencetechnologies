@@ -4,6 +4,7 @@ import { ApiService } from '../services/api.service';
 import { MatDialog, MatIcon} from '@angular/material';
 import { DetailsDialogComponent } from '../details-dialog/details-dialog.component';
 import { TypesDialogComponent } from '../types-dialog/types-dialog.component';
+import { FeatureDialogComponent } from '../feature-dialog/feature-dialog.component';
 
 @Component({
   selector: 'app-dashboard',
@@ -44,5 +45,10 @@ this.dialog.open(TypesDialogComponent, {width: '700px', height: 'auto', data:{
   id: id,
   parent:parent
 }})
+}
+
+addFeature(id, parent, parentId){
+  console.log(id, ' ', parentId);
+  this.dialog.open(FeatureDialogComponent, {width: '700', height: 'auto', data: {id: id, parent: parent, parentId: parentId}});
 }
 }

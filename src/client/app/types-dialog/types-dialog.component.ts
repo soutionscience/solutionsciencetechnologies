@@ -44,7 +44,7 @@ this.dialogRef.close()
 
   }
   postTypeImage(id){
-    this.apiService.postResourceTypesImages(this.data.parent, this.data.id,id, this.image)
+    this.apiService.postResourceTypesImages(this.data.parent, this.data.id, id, this.image)
   }
 imageNotify(data){
   console.log("what is here", data)

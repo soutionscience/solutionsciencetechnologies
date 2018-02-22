@@ -26,9 +26,12 @@ postResourceTypes(apiRoute, id:number,typeDetail){
 
  return this.restangular.one(apiRoute, id ).all('types').post(typeDetail)
 }
-postResourceTypesImages(apiRoute, id:number, typeId:number, imageDetail){
+postResourceTypesImages(apiRoute, id: number, typeId:number, imageDetail){
  this.restangular.one(apiRoute, id).all('types').one(typeId).all('images').post(imageDetail)
 
 }
+postResourceTypesFeatures(apiRoute, id: number, typeId: number, imageDetail) {
+  this.restangular.one(apiRoute, id).all('types').one(typeId).all('features').post(imageDetail);
+ }
 
 }

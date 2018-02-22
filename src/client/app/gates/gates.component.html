@@ -8,21 +8,26 @@
       <p>{{g.desc}}</p>
     </div>
     <div class="column">
-        <img [src]="'/uploads/' + g.images[0].filename">
+        <img [src]="'/uploads/' + g.images[0]?.filename">
     </div>
   </div>
   <div class="types">
   <div *ngFor="let t of g.types">
     <div class="columns">
       <div class="column is-three-quarters">
-        <p class="subtitle">{{t.title}}</p>
+        <p class="subtitle is-3">{{t.title}}</p>
         <p>{{t.desc}}</p>
+        <p class="subtitle is-4">Features:</p>
+        <ul *ngFor ="let f of t.features">
+          <ol>{{f.desc}}</ol>
+        </ul>
       </div>
       <div class="column">
-          <img [src]="'/uploads/' + t.images[0].filename">
+          <img [src]="'/uploads/' + t.images[0]?.filename">
 
       </div>
     </div>
+
   </div>
 </div>
 </div>

@@ -20,7 +20,7 @@ export class DetailsDialogComponent implements OnInit {
     private fb: FormBuilder, 
     @Inject(MAT_DIALOG_DATA) public data:any,
    private apiService: ApiService) 
-  { this.createForm() }
+  {this.createForm()}
 
   createForm(){ //create generic form data
     this.myForm = this.fb.group({
