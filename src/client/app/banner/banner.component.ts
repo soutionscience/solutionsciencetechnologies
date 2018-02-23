@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { MatDialog } from '@angular/material';
+import { ActualContactDialogComponent } from '../actual-contact-dialog/actual-contact-dialog.component';
 
 @Component({
   selector: 'app-banner',
@@ -7,9 +9,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class BannerComponent implements OnInit {
 
-  constructor() { }
+  constructor(private dialog: MatDialog) { }
 
   ngOnInit() {
   }
+
+  contactUs(){
+    this.dialog.open(ActualContactDialogComponent{width: '50%', height:'auto'})
+}
 
 }

@@ -9,10 +9,10 @@ var image = new Schema({
 
 var contact = new Schema({
     email: String,
-    telephone: Number,
-    title: String,
-    subtitle: String,
-    desc: String
+    tel: Number,
+    product: String,
+    name: String,
+    message: String
    
 
 })

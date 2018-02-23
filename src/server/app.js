@@ -16,6 +16,7 @@ var product = require('./routes/product.router')
 var cctv = require('./routes/cctv.router')
 var alarm = require('./routes/alarm.router')
 var access = require('./routes/access.router')
+var contact = require('./routes/contact.router')
 
 var app = express();
 
@@ -40,8 +41,9 @@ app.use('/api/home', home)
 app.use('/api/uploads', upload);
 app.use('/api/gate', product)
 app.use('/api/cctv', cctv);
-app.use('/api/alarm', alarm)
-app.use('/api/access', access)
+app.use('/api/alarm', alarm);
+app.use('/api/access', access);
+app.use('/api/contact', contact)
 mongoose.connect(process.env.MONGOLAB_UR || config.mongoDbUrl, function(err, db){
   if(!err){
     console.log("connected to remote db")

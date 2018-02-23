@@ -1,0 +1,38 @@
+<form action="" [formGroup]="myForm">
+  <button *ngIf="sending" class="button is-warning is-loading is-large" >Loading</button>
+  <div class="field">
+    <label class="label">Name</label>
+    <div class="control">
+      <input class="input" type="text" placeholder="e.g Alex Smith" formControlName="name">
+    </div>
+ 
+  </div>
+  
+  <div class="field">
+    <label class="label">Email</label>
+    <div class="control">
+      <input class="input" type="email" placeholder="e.g. yourname@gmail.com" formControlName ="email">
+    </div>
+   
+  </div>
+  <div class="field">
+      <label class="label">Tel</label>
+      <div class="control">
+        <input class="input" type="text" placeholder="+254 724 000 000" formControlName ="tel">
+      </div>
+    </div>
+    <div class="field">
+        <label class="label">Product</label>
+        <div class="control">
+          <input class="input" type="text" placeholder="e.g CCTV" formControlName ="product">
+        </div>
+      </div>
+      <div class="field">
+          <label class="label">Message</label>
+          <div class="control">
+            <textarea class="textarea" placeholder="Tell us more.." formControlName ="message"></textarea>
+          </div>
+        </div>
+
+        <button (click)="onSubmit()" [disabled]="myForm.invalid" class="button is-primary">Submit</button>
+</form>
