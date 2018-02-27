@@ -19,6 +19,9 @@ var cctv = require('./routes/cctv.router')
 var alarm = require('./routes/alarm.router')
 var access = require('./routes/access.router')
 var contact = require('./routes/contact.router')
+var verify= require('./controllers/verify')
+
+
 
 var app = express();
 
@@ -36,9 +39,14 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/uploads', express.static(path.join(__dirname, '/uploads')));
 // app.get('*', function(req, res){ return res.sendFile(path.join(__dirname, 'public/index.html'))})
 
+// app.use(checkJwt({ secret: config.secretKey }).unless({ path: '/api/users/authenticate' }))
+// app.use(function(err, req, res , next){
+//   if(err.name ==='UnauthorizedError'){
+//     res.status(401).send({error: err.message})
+//   } 
+// })
 
 
-// app.use('/', index);
 app.use('/api/users', users);
 app.use('/api/fire', fire)
 app.use('/api/home', home)

@@ -1,24 +1,26 @@
+var verify= require('../controllers/verify')
+
 module.exports = function(controller , router){
     router.route('/')
     .get(controller.get)
-    .post(controller.post)
-    .delete(controller.delete)
+    .post(verify.verifyOrdinaryUser, controller.post)
+    .delete(verify.verifyOrdinaryUser, controller.delete)
 
     router.route('/:id/images')
-    .post(controller.postImages)
+    .post(verify.verifyOrdinaryUser, controller.postImages)
 
     router.route('/:id/types')
-    .post(controller.postTypes)
+    .post(verify.verifyOrdinaryUser, controller.postTypes)
     .get(controller.getTypes)
-    .delete(controller.deleteTypes)
+    .delete(verify.verifyOrdinaryUser, controller.deleteTypes)
 
     router.route('/:id/types/:typeId')
     .get(controller.getTypeId)
   
     router.route('/:id/types/:typeId/images')
-    .post(controller.addImageToType)
+    .post(verify.verifyOrdinaryUser, controller.addImageToType)
 
     router.route('/:id/types/:typeId/features')
-    .post(controller.addFeatureToType)
+    .post(verify.verifyOrdinaryUser, controller.addFeatureToType)
 
 }

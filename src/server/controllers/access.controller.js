@@ -1,15 +1,16 @@
-const access= require ('../models/access')
+const access= require ('../models/access');
+var verify = require('./verify')
 
-exports.post = function(req, res){
+exports.post = (verify.verifyOrdinaryUser, function(req, res){
     console.log("hitting post")
     var newprod = new access(req.body)
     newprod.save(function(err, resp){
         if(err) throw err;
         res.status(201).json(resp)
     })
-}
+})
 
-exports.get = function(req, res){
+exports.get = (verify.verifyOrdinaryUser, function(req, res){
     console.log("get")
     access.find({})
     .exec(function(err, resp){
@@ -17,7 +18,7 @@ exports.get = function(req, res){
         res.json(resp)
     })
 }
-
+)
 exports.delete = function(req, res){
     access.remove({}, function(err, resp){
         if(err) throw err;
