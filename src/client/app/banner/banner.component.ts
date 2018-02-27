@@ -15,7 +15,7 @@ export class BannerComponent implements OnInit {
   }
 
   contactUs(){
-    this.dialog.open(ActualContactDialogComponent{width: '50%', height:'auto'})
+    this.dialog.open(ActualContactDialogComponent, {width: '50%', height:'auto'})
 }
 
 }

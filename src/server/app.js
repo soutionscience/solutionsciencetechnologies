@@ -6,6 +6,8 @@ var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var mongoose = require('mongoose')
 var config = require('./config')
+const checkJwt = require('express-jwt');
+
 
 var index = require('./routes/index');
 var users = require('./routes/users');
@@ -37,7 +39,7 @@ app.use('/uploads', express.static(path.join(__dirname, '/uploads')));
 
 
 // app.use('/', index);
-app.use('/users', users);
+app.use('/api/users', users);
 app.use('/api/fire', fire)
 app.use('/api/home', home)
 app.use('/api/uploads', upload);
