@@ -11,6 +11,7 @@ import { restangularConfigFactory } from './shared/rest-config';
 import { ApiService } from './services/api.service';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AuthService } from './services/auth.service';
+import { AuthGuard } from './auth.guard';
 
 
 
@@ -23,7 +24,7 @@ import { AuthService } from './services/auth.service';
     BrowserAnimationsModule
 
   ],
-  providers: [ApiService, AuthService],
+  providers: [ApiService, AuthService, AuthGuard],
   bootstrap: [AppComponent],
   
 })

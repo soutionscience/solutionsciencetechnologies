@@ -21,8 +21,8 @@ logOut(){
 
 
 }
-isLoggedIn(){
-  return this.storageKey !== null;
+isLoggedIn() {
+  return this.getToken() !== null;
 
 }
 
