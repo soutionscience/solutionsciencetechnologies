@@ -29,6 +29,7 @@ exports.delete = function(req, res){
 }
 
 exports.authenticate = function(req, res){
+    console.log("hittinh auth")
     const myUser = req.body
     user.findOne({username: myUser.username}, function(err, result){
         if(!result){

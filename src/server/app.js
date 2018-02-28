@@ -11,6 +11,7 @@ const checkJwt = require('express-jwt');
 
 var index = require('./routes/index');
 var users = require('./routes/users');
+var auth = require('./routes/auth.routes');
 var fire = require('./routes/fire.router')
 var home = require('./routes/home.router')
 var upload = require('./routes/upload.router')
@@ -47,7 +48,8 @@ app.use('/uploads', express.static(path.join(__dirname, '/uploads')));
 // })
 
 
-app.use('/api/users', users);
+ app.use('/api/users', users);
+ app.use('/api/authenticate', auth);
 app.use('/api/fire', fire)
 app.use('/api/home', home)
 app.use('/api/uploads', upload);

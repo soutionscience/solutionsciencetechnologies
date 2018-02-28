@@ -21,6 +21,7 @@ import { ContactDialogComponent } from '../contact-dialog/contact-dialog.compone
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatDialogModule, MatIconModule} from '@angular/material';
 import { ActualContactDialogComponent } from '../actual-contact-dialog/actual-contact-dialog.component';
+import { LoginComponent } from '../login/login.component';
 
 const routes: Routes = [
   {path: '', component: HomeComponent,
@@ -32,8 +33,9 @@ const routes: Routes = [
 {path: 'alarms', component: AlarmsComponent},
 {path: 'access', component: AcessComponent},
 {path: 'careers', component: CareersComponent},
-{path: 'contact-us', component: ContactUsComponent}]}
-]
+{path: 'contact-us', component: ContactUsComponent},
+{path: 'login', component: LoginComponent}]}
+];
 
 @NgModule({
   imports: [
@@ -46,7 +48,7 @@ const routes: Routes = [
   declarations: [HomeComponent, BannerComponent, MainMenuComponent, LogoComponent, 
     WelcomeComponent, QuoteComponent, FooterComponent, BottomComponent, 
     FireComponent, GatesComponent, CctvComponent, AcessComponent, AlarmsComponent, 
-    CareersComponent, ContactUsComponent, ContactDialogComponent, ActualContactDialogComponent],
+    CareersComponent, ContactUsComponent, ContactDialogComponent, ActualContactDialogComponent, LoginComponent],
     exports:[RouterModule],
     entryComponents: [ActualContactDialogComponent]
 })
