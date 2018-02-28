@@ -25,4 +25,5 @@ isLoggedIn(){
   return this.storageKey !== null;
 
 }
+
 }
