@@ -37,7 +37,11 @@
     "run-s": "0.0.0",
     "rxjs": "^5.5.6",
     "serve-favicon": "~2.4.5",
-    "zone.js": "^0.8.19"
+    "zone.js": "^0.8.19",
+    "bcrypt": "^1.0.3",
+    "express-jwt": "^5.3.0",
+    "jsonwebtoken": "^8.1.1"
+
   },
   "devDependencies": {
     "@angular/cli": "1.6.7",

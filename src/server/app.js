@@ -38,7 +38,6 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 app.use('/uploads', express.static(path.join(__dirname, '/uploads')));
-// app.get('*', function(req, res){ return res.sendFile(path.join(__dirname, 'public/index.html'))})
 
 // app.use(checkJwt({ secret: config.secretKey }).unless({ path: '/api/users/authenticate' }))
 // app.use(function(err, req, res , next){
@@ -58,6 +57,8 @@ app.use('/api/cctv', cctv);
 app.use('/api/alarm', alarm);
 app.use('/api/access', access);
 app.use('/api/contact', contact)
+app.get('*', function(req, res){ return res.sendFile(path.join(__dirname, 'public/index.html'))})
+
 mongoose.connect(process.env.MONGOLAB_UR || config.mongoDbUrl, function(err, db){
   if(!err){
     console.log("connected to remote db")

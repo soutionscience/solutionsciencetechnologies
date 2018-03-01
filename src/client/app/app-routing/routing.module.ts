@@ -4,10 +4,11 @@ import{ Routes, RouterModule} from '@angular/router'
 import { AppComponent } from '../app.component';
 import { AuthGuard } from '../auth.guard';
 
-const routes: Routes =[
+const routes: Routes = [
   {path: 'home', loadChildren: './website.module#WebsiteModule'},
-  { path:'admin', loadChildren: './admin-area.module#AdminAreaModule', canActivate:[AuthGuard]},
-  {path:'', redirectTo: 'home', pathMatch: 'full'}
+  { path: 'admin', loadChildren: './admin-area.module#AdminAreaModule', canActivate: [AuthGuard]},
+  {path: '**', redirectTo: 'home'},
+  {path: '', redirectTo: 'home', pathMatch: 'full'}
 
 
 ]
@@ -18,6 +19,6 @@ const routes: Routes =[
     RouterModule.forRoot(routes)
   ],
   declarations: [AppComponent],
-  exports:[AppComponent]
+  exports: [AppComponent]
 })
 export class RoutingModule { }
