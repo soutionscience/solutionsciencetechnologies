@@ -1,6 +1,6 @@
 <div class="fire">
 <div class="container">
-    <button *ngIf="!fire" class="button is-warning is-loading is-large" >Loading</button>
+    <button *ngIf="!fire" [@expand] class="button is-warning is-loading is-large" >Loading</button>
   <div class="columns" *ngFor="let f of fire">
     <div class="column is-two-thirds">
       <div>
