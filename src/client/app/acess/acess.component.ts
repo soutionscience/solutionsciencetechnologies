@@ -1,12 +1,16 @@
 import { Component, OnInit } from '@angular/core';
 import { Home } from '../shared/home.model';
 import { ApiService } from '../services/api.service';
+import { flyInOut } from '../animations/app.animations';
 
 @Component({
   selector: 'app-acess',
   templateUrl: './acess.component.html',
-  styleUrls: ['./acess.component.scss']
+  styleUrls: ['./acess.component.scss'],
+  host: {'[@flyInOut]': 'true', 'style': 'display: block'},
+  animations: [flyInOut()]
 })
+
 export class AcessComponent implements OnInit {
   access: Home[]
 
